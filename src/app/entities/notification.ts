@@ -1,6 +1,8 @@
+import { Content } from './content';
+
 export interface NotificationProps {
   recipientId: string;
-  content: string;
+  content: Content;
   category: string;
   readAt?: Date | null;
   createdAt: Date;
@@ -41,17 +43,11 @@ export class Notification {
     return this.props.createdAt;
   }
 
-  public get content(): string {
+  public get content(): Content {
     return this.props.content;
   }
 
-  public set content(content: string) {
-    if (content.length > 255) {
-      throw new Error('Content is too long');
-    } else if (content.length < 5) {
-      throw new Error('Content is too short');
-    }
-
+  public set content(content: Content) {
     this.props.content = content;
   }
 }
