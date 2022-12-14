@@ -10,5 +10,5 @@ export class CreateNotificationBody {
 
   @IsNotEmpty()
   @IsUUID()
-  recepientId: string;
+  recipientId: string;
 }
