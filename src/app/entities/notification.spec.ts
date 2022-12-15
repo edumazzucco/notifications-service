@@ -17,7 +17,7 @@ describe('Notification', () => {
       content: new Content('Hello world!'),
       category: 'new_user',
     });
-    notification.readAt = new Date();
+    notification.read();
     expect(notification.readAt).toBeTruthy();
   });
 });
