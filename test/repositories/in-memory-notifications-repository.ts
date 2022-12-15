@@ -4,6 +4,11 @@ import { NotificationsRepository } from '../../src/app/repositories/notification
 export class InMemoryNotificationsRepository
   implements NotificationsRepository
 {
+  async countManyByRecipientId(recipientId: string): Promise<number> {
+    return this.notifications.filter(
+      (n) => n.recipientId === recipientId && !n.cancelledAt,
+    ).length;
+  }
   public notifications: Notification[] = [];
 
   async findById(notificationId: string): Promise<Notification> {
